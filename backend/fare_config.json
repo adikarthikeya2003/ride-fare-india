@@ -1,0 +1,911 @@
+{
+  "_meta": {
+    "last_updated": "2024-12",
+    "disclaimer": "Fare structures are approximate, derived from publicly available platform disclosures, community reports, and news coverage. Always verify in-app before booking.",
+    "sources": [
+      "Uber India Help Center — fare breakdown pages",
+      "Ola support pages and community forums (Reddit r/bangalore, r/india)",
+      "Rapido in-app fare disclosure screens",
+      "Namma Yatri / ONDC rates — Karnataka Government Auto Tariff 2023",
+      "inDrive community bid pattern reports",
+      "Economic Times, The Hindu, and Moneycontrol fare coverage (2024)"
+    ]
+  },
+  "bangalore": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks for daily rides",
+          "base_fare": 30,
+          "per_km": 11,
+          "per_min": 1.5,
+          "booking_fee": 5,
+          "minimum_fare": 70,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberAuto",
+          "type": "auto",
+          "description": "Auto-rickshaws — surge-free",
+          "base_fare": 25,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 50,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#333333"
+        },
+        {
+          "name": "UberPremier",
+          "type": "cab",
+          "description": "Sedans for premium rides",
+          "base_fare": 70,
+          "per_km": 17,
+          "per_min": 2.0,
+          "booking_fee": 10,
+          "minimum_fare": 120,
+          "surge_range": [1.0, 2.5],
+          "icon": "🚙",
+          "color": "#111111"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 40,
+          "per_km": 10,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 70,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Sedan",
+          "type": "cab",
+          "description": "Comfortable sedans",
+          "base_fare": 55,
+          "per_km": 13,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 90,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚙",
+          "color": "#1E8449"
+        },
+        {
+          "name": "Ola Auto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 25,
+          "per_km": 7,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [1.0, 1.3],
+          "icon": "🛺",
+          "color": "#58D68D"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest option",
+          "base_fare": 15,
+          "per_km": 4,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Auto",
+          "type": "auto",
+          "description": "Auto-rickshaws at low fares",
+          "base_fare": 20,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 40,
+          "surge_range": [1.0, 1.4],
+          "icon": "🛺",
+          "color": "#E55C00"
+        },
+        {
+          "name": "Cab",
+          "type": "cab",
+          "description": "Budget hatchback rides",
+          "base_fare": 35,
+          "per_km": 11,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 60,
+          "surge_range": [1.0, 1.5],
+          "icon": "🚗",
+          "color": "#CC5500"
+        }
+      ]
+    },
+    "namma_yatri": {
+      "display_name": "Namma Yatri",
+      "brand_color": "#1E3A8A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🔵",
+      "categories": [
+        {
+          "name": "NY Auto",
+          "type": "auto",
+          "description": "Zero commission, zero surge — ONDC network",
+          "fare_model": "slab",
+          "base_fare": 30,
+          "first_km_included": 1.9,
+          "per_km_after": 13.56,
+          "per_km": 13.56,
+          "per_min": 0,
+          "booking_fee": 0,
+          "minimum_fare": 30,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#1E3A8A",
+          "note": "Karnataka Govt tariff: ₹30 for 1.9km, ₹13.56/km after. Drivers keep 100%. No surge."
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 25,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 50,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion. Actual fare is driver-negotiated."
+        }
+      ]
+    }
+  },
+  "delhi": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks",
+          "base_fare": 35,
+          "per_km": 12,
+          "per_min": 1.25,
+          "booking_fee": 5,
+          "minimum_fare": 75,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberAuto",
+          "type": "auto",
+          "description": "CNG autos — no surge",
+          "base_fare": 30,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 55,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#333333"
+        },
+        {
+          "name": "UberPremier",
+          "type": "cab",
+          "description": "Sedans for premium rides",
+          "base_fare": 80,
+          "per_km": 18,
+          "per_min": 2.0,
+          "booking_fee": 10,
+          "minimum_fare": 130,
+          "surge_range": [1.0, 2.5],
+          "icon": "🚙",
+          "color": "#111111"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 45,
+          "per_km": 11,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 75,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Sedan",
+          "type": "cab",
+          "description": "Comfortable sedans",
+          "base_fare": 60,
+          "per_km": 14,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 100,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚙",
+          "color": "#1E8449"
+        },
+        {
+          "name": "Ola Auto",
+          "type": "auto",
+          "description": "CNG auto-rickshaws",
+          "base_fare": 30,
+          "per_km": 8,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 50,
+          "surge_range": [1.0, 1.3],
+          "icon": "🛺",
+          "color": "#58D68D"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest",
+          "base_fare": 15,
+          "per_km": 4,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Auto",
+          "type": "auto",
+          "description": "CNG autos at low fares",
+          "base_fare": 25,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [1.0, 1.4],
+          "icon": "🛺",
+          "color": "#E55C00"
+        },
+        {
+          "name": "Cab",
+          "type": "cab",
+          "description": "Budget hatchback rides",
+          "base_fare": 40,
+          "per_km": 12,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 70,
+          "surge_range": [1.0, 1.5],
+          "icon": "🚗",
+          "color": "#CC5500"
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 30,
+          "per_km": 10,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 55,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion."
+        }
+      ]
+    }
+  },
+  "mumbai": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks",
+          "base_fare": 35,
+          "per_km": 13,
+          "per_min": 1.5,
+          "booking_fee": 5,
+          "minimum_fare": 80,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberXL",
+          "type": "cab",
+          "description": "SUVs for groups",
+          "base_fare": 80,
+          "per_km": 18,
+          "per_min": 2.5,
+          "booking_fee": 10,
+          "minimum_fare": 150,
+          "surge_range": [1.0, 2.5],
+          "icon": "🚐",
+          "color": "#111111"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 45,
+          "per_km": 12,
+          "per_min": 1.25,
+          "booking_fee": 0,
+          "minimum_fare": 80,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Prime",
+          "type": "cab",
+          "description": "Premium sedans",
+          "base_fare": 65,
+          "per_km": 16,
+          "per_min": 2.0,
+          "booking_fee": 0,
+          "minimum_fare": 110,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚙",
+          "color": "#1E8449"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest",
+          "base_fare": 18,
+          "per_km": 5,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 30,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Cab",
+          "type": "cab",
+          "description": "Budget hatchback rides",
+          "base_fare": 40,
+          "per_km": 12,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 70,
+          "surge_range": [1.0, 1.5],
+          "icon": "🚗",
+          "color": "#CC5500"
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 30,
+          "per_km": 11,
+          "per_min": 1.25,
+          "booking_fee": 0,
+          "minimum_fare": 60,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion."
+        }
+      ]
+    }
+  },
+  "hyderabad": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks",
+          "base_fare": 30,
+          "per_km": 10,
+          "per_min": 1.25,
+          "booking_fee": 5,
+          "minimum_fare": 65,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberAuto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 25,
+          "per_km": 7,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#333333"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 35,
+          "per_km": 10,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 60,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Auto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 20,
+          "per_km": 7,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 40,
+          "surge_range": [1.0, 1.3],
+          "icon": "🛺",
+          "color": "#58D68D"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest",
+          "base_fare": 15,
+          "per_km": 4,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Auto",
+          "type": "auto",
+          "description": "Autos at low fares",
+          "base_fare": 18,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 35,
+          "surge_range": [1.0, 1.4],
+          "icon": "🛺",
+          "color": "#E55C00"
+        },
+        {
+          "name": "Cab",
+          "type": "cab",
+          "description": "Budget hatchback rides",
+          "base_fare": 30,
+          "per_km": 10,
+          "per_min": 1.5,
+          "booking_fee": 0,
+          "minimum_fare": 55,
+          "surge_range": [1.0, 1.5],
+          "icon": "🚗",
+          "color": "#CC5500"
+        }
+      ]
+    },
+    "namma_yatri": {
+      "display_name": "Namma Yatri",
+      "brand_color": "#1E3A8A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🔵",
+      "categories": [
+        {
+          "name": "NY Auto",
+          "type": "auto",
+          "description": "Zero commission, zero surge — ONDC network",
+          "fare_model": "slab",
+          "base_fare": 25,
+          "first_km_included": 1.5,
+          "per_km_after": 12.0,
+          "per_km": 12.0,
+          "per_min": 0,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#1E3A8A",
+          "note": "Telangana auto tariff: ₹25 for 1.5km, ₹12/km after. Drivers keep 100%. No surge."
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 22,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion."
+        }
+      ]
+    }
+  },
+  "chennai": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks",
+          "base_fare": 32,
+          "per_km": 11,
+          "per_min": 1.25,
+          "booking_fee": 5,
+          "minimum_fare": 65,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberAuto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 28,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 50,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#333333"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 40,
+          "per_km": 10,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 65,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Auto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 25,
+          "per_km": 7,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [1.0, 1.3],
+          "icon": "🛺",
+          "color": "#58D68D"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest",
+          "base_fare": 15,
+          "per_km": 4,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Auto",
+          "type": "auto",
+          "description": "Autos at low fares",
+          "base_fare": 20,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 40,
+          "surge_range": [1.0, 1.4],
+          "icon": "🛺",
+          "color": "#E55C00"
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 25,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 50,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion."
+        }
+      ]
+    }
+  },
+  "pune": {
+    "uber": {
+      "display_name": "Uber",
+      "brand_color": "#000000",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "⚫",
+      "categories": [
+        {
+          "name": "UberGo",
+          "type": "cab",
+          "description": "Affordable hatchbacks",
+          "base_fare": 28,
+          "per_km": 10,
+          "per_min": 1.25,
+          "booking_fee": 5,
+          "minimum_fare": 65,
+          "surge_range": [1.0, 2.0],
+          "icon": "🚗",
+          "color": "#1a1a1a"
+        },
+        {
+          "name": "UberAuto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 22,
+          "per_km": 7,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [1.0, 1.0],
+          "icon": "🛺",
+          "color": "#333333"
+        }
+      ]
+    },
+    "ola": {
+      "display_name": "Ola",
+      "brand_color": "#27AE60",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟢",
+      "categories": [
+        {
+          "name": "Ola Mini",
+          "type": "cab",
+          "description": "Compact hatchbacks",
+          "base_fare": 38,
+          "per_km": 9,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 65,
+          "surge_range": [1.0, 1.8],
+          "icon": "🚗",
+          "color": "#27AE60"
+        },
+        {
+          "name": "Ola Auto",
+          "type": "auto",
+          "description": "Auto-rickshaws",
+          "base_fare": 20,
+          "per_km": 7,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 40,
+          "surge_range": [1.0, 1.3],
+          "icon": "🛺",
+          "color": "#58D68D"
+        }
+      ]
+    },
+    "rapido": {
+      "display_name": "Rapido",
+      "brand_color": "#FF6B00",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟠",
+      "categories": [
+        {
+          "name": "Bike",
+          "type": "bike",
+          "description": "Fastest & cheapest",
+          "base_fare": 15,
+          "per_km": 4,
+          "per_min": 0.5,
+          "booking_fee": 0,
+          "minimum_fare": 25,
+          "surge_range": [1.0, 1.5],
+          "icon": "🏍️",
+          "color": "#FF6B00"
+        },
+        {
+          "name": "Auto",
+          "type": "auto",
+          "description": "Autos at low fares",
+          "base_fare": 18,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 35,
+          "surge_range": [1.0, 1.4],
+          "icon": "🛺",
+          "color": "#E55C00"
+        }
+      ]
+    },
+    "indrive": {
+      "display_name": "inDrive",
+      "brand_color": "#0E4D2A",
+      "text_color": "#FFFFFF",
+      "logo_emoji": "🟩",
+      "categories": [
+        {
+          "name": "inDrive Cab",
+          "type": "cab",
+          "description": "Bid-based: suggest a fare, driver negotiates",
+          "base_fare": 22,
+          "per_km": 8,
+          "per_min": 1.0,
+          "booking_fee": 0,
+          "minimum_fare": 45,
+          "surge_range": [0.8, 1.15],
+          "icon": "🚗",
+          "color": "#0E4D2A",
+          "note": "Range = typical accepted bid vs initial suggestion."
+        }
+      ]
+    }
+  }
+}

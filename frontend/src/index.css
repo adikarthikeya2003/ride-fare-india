@@ -1,0 +1,67 @@
+/* Leaflet CSS must precede @tailwind */
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full bg-white border border-gray-200 rounded-xl px-4 py-3
+           text-gray-900 placeholder-gray-400 text-sm
+           focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-900
+           transition-all duration-150;
+  }
+
+  .btn-primary {
+    @apply w-full bg-gray-950 text-white py-3.5 rounded-xl font-semibold text-sm
+           hover:bg-gray-800 active:scale-[0.99]
+           disabled:opacity-40 disabled:cursor-not-allowed
+           transition-all duration-150 flex items-center justify-center gap-2
+           shadow-sm;
+  }
+
+  .pill-btn {
+    @apply px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer;
+  }
+
+  .pill-active {
+    @apply bg-gray-950 text-white border-gray-950 shadow-sm;
+  }
+
+  .pill-inactive {
+    @apply bg-white text-gray-600 border-gray-200 hover:border-gray-400 hover:bg-gray-50;
+  }
+}
+
+/* Autocomplete dropdown scroll */
+.suggestions-list { scrollbar-width: thin; scrollbar-color: #e2e8f0 transparent; }
+.suggestions-list::-webkit-scrollbar { width: 4px; }
+.suggestions-list::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 9999px; }
+
+/* Card entrance animation */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-enter { animation: fadeSlideUp 0.35s ease both; }
+
+/* Leaflet overrides */
+.leaflet-container { font-family: 'Inter', sans-serif; }
+.leaflet-popup-content-wrapper {
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+  padding: 0 !important;
+}
+.leaflet-popup-content { margin: 10px 14px !important; font-size: 13px !important; }
+.leaflet-control-attribution { font-size: 10px !important; }
