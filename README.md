@@ -1,135 +1,138 @@
 # 🛺 RideFare India
 
-> Side-by-side fare estimates for Uber, Ola, Rapido, Namma Yatri, and inDrive across 6 Indian cities.
+**Compare Uber, Ola, Rapido, Namma Yatri & inDrive — side-by-side, in seconds.**
 
-**Live demo:** `[add your Vercel URL here]`
-
----
-
-## What it does
-
-Enter an origin and destination in any of 6 Indian cities (Bangalore, Delhi, Mumbai, Hyderabad, Chennai, Pune) and get estimated fares for all major ride platforms side-by-side — with surge ranges, category comparisons, and a "Best Value" highlight.
-
-**Honest disclaimer:** These are estimates based on published fare structures, not live API data. Official ride-hailing APIs are not publicly accessible. Actual fares depend on real-time surge, route differences, and promotions.
+Live at → **[adikarthikeya2003.github.io/ride-fare-india](https://adikarthikeya2003.github.io/ride-fare-india/)**
 
 ---
 
-## Tech Stack (100% free)
+## What It Does
 
-| Layer | Tool |
+Enter a pickup and drop-off in any of 6 Indian cities and instantly see fare estimates across all major ride apps — adjusted for live weather, time of day, and special events like festivals or cricket matches.
+
+| Platform | Categories |
 |---|---|
-| Frontend | React 18 + Vite + Tailwind CSS |
-| Backend | Python + FastAPI |
-| Geocoding | OpenStreetMap / Nominatim (free, no API key) |
-| Routing | OSRM public API (free, no API key) |
-| Frontend hosting | Vercel (free tier) |
-| Backend hosting | Render.com (free tier) |
-| Database | None — fare configs in a JSON file |
+| ⚫ Uber | UberGo · UberAuto · UberPremier |
+| 🟢 Ola | Mini · Sedan · Auto |
+| 🟠 Rapido | Bike · Auto · Cab |
+| 🔵 Namma Yatri | ONDC Auto (zero surge) |
+| 🟩 inDrive | Bid-based Cab |
+
+**Cities supported:** Bangalore · Delhi · Mumbai · Hyderabad · Chennai · Pune
 
 ---
 
-## Local Development
+## Features
 
-### Backend
+- **Live IST clock** — auto-detects time of day and selects the right surge slot
+- **Live weather** — fetches real weather at your pickup location via Open-Meteo (no API key needed)
+- **Surge breakdown** — shows exactly why fares are higher (weather × time × event)
+- **Map pinpointing** — click anywhere on the map to set pickup or drop-off; auto-reverse-geocodes the address
+- **Smart search** — dual geocoding (Photon + Nominatim) for accurate Indian locality search
+- **PWA** — installable on iPhone and Android, works offline
 
+---
+
+## Install as an App (Free — No App Store)
+
+### iPhone / iOS
+
+1. Open **[adikarthikeya2003.github.io/ride-fare-india](https://adikarthikeya2003.github.io/ride-fare-india/)** in **Safari**
+2. Tap the **Share** button (box with arrow at the bottom of the screen)
+3. Scroll down and tap **"Add to Home Screen"**
+4. Tap **Add** in the top right
+
+The app now lives on your home screen with its own icon. It opens full-screen with no browser bar — exactly like a native app. Works on iOS 16.4+.
+
+### Android / Chrome
+
+1. Open the site in **Chrome**
+2. A banner appears at the bottom: **"Add RideFare to Home Screen"** — tap **Install**
+3. Or: tap the **3-dot menu → Add to Home Screen**
+
+The app installs with an adaptive icon and launches standalone — no Play Store needed.
+
+---
+
+## How to Use
+
+### 1. Select your city
+Tap the city bar at the top and choose your city.
+
+### 2. Enter pickup and drop-off
+Type a location in the search boxes and pick from the dropdown to confirm coordinates.
+
+**Or pin directly on the map:**
+- Tap **"Pin Pickup (A)"** → tap anywhere on the map
+- Tap **"Pin Drop-off (B)"** → tap anywhere on the map
+- Address auto-fills from the map pin
+
+### 3. Set conditions (optional — auto-filled)
+The **Conditions** panel fills itself:
+- **Weather** — fetched live at your pickup location
+- **Time slot** — detected from current IST time
+
+Override either manually. The **surge breakdown** box explains the combined multiplier in plain English.
+
+### 4. Compare Fares
+Tap **Compare Fares**. Results appear in ~2 seconds showing:
+- Fare range (low–high estimate)
+- Surge-immune options highlighted (Namma Yatri, UberAuto never surge)
+- Best value badge
+- Booking fees, if any
+
+---
+
+## Offline Mode
+
+Once loaded, the app works without internet for:
+- Map tiles (cached for 30 days after first view)
+- Last weather result (served from cache)
+- Instant app shell load
+
+The fare comparison itself requires the backend — a clear error is shown if offline.
+
+---
+
+## Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | React 18 · Vite · Tailwind CSS |
+| Map | Leaflet · OpenStreetMap |
+| Geocoding | Photon (Komoot) + Nominatim |
+| Weather | Open-Meteo API (free, no key) |
+| Routing | OSRM public API |
+| Backend | FastAPI · Python 3.12 |
+| PWA | vite-plugin-pwa · Workbox |
+| Hosting | GitHub Pages (frontend) · Render.com free tier (backend) |
+
+---
+
+## Run Locally
+
+**Backend**
 ```bash
 cd backend
-python3 -m venv venv
-source venv/bin/activate       # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
-# API running at http://localhost:8000
-# Docs at http://localhost:8000/docs
+# API at http://localhost:8000
 ```
 
-### Frontend
-
+**Frontend**
 ```bash
 cd frontend
 npm install
-cp .env.example .env            # Edit VITE_API_URL if needed
 npm run dev
-# App running at http://localhost:5173
+# App at http://localhost:5173
 ```
 
 ---
 
-## Deployment
+## Disclaimer
 
-### Backend → Render.com
-
-1. Push repo to GitHub
-2. Go to [render.com](https://render.com) → New Web Service → Connect your repo
-3. Root directory: `backend`
-4. Build command: `pip install -r requirements.txt`
-5. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-6. Copy the deployed URL (e.g. `https://ride-fare-api.onrender.com`)
-
-### Frontend → Vercel
-
-1. Go to [vercel.com](https://vercel.com) → New Project → Import your repo
-2. Add environment variable: `VITE_API_URL = https://ride-fare-api.onrender.com`
-3. Deploy — that's it.
-
-> **Note:** Render free tier spins down after 15 minutes of inactivity. First request may take ~30s. This is fine for demos.
+Fares are **estimates** based on published fare structures — not live pricing from the apps. Actual fares may differ due to real-time surge, driver availability, tolls, and route. Always verify in-app before booking.
 
 ---
 
-## Adding a New City
-
-Edit `backend/fare_config.json` and add a new top-level key following the same structure as existing cities. The frontend city selector is in `frontend/src/components/CitySelector.jsx`.
-
-## Updating Fare Structures
-
-All fare data is in `backend/fare_config.json`. Each category has:
-- `base_fare` — minimum fare charged at trip start
-- `per_km` — rate charged per kilometer
-- `per_min` — rate charged per minute
-- `booking_fee` — platform service fee (if any)
-- `minimum_fare` — floor fare regardless of distance
-- `surge_range` — `[min_multiplier, max_multiplier]` applied to the subtotal
-
----
-
-## Project Structure
-
-```
-ride-fare-compare/
-├── backend/
-│   ├── main.py              # FastAPI app + endpoints
-│   ├── fare_engine.py       # Fare calculation logic
-│   ├── fare_config.json     # All fare data (edit this to update)
-│   ├── requirements.txt
-│   └── Dockerfile
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── components/      # UI components
-│   │   └── utils/           # Geocoding, routing, API calls
-│   ├── package.json
-│   └── vite.config.js
-├── vercel.json              # Vercel deployment config
-├── render.yaml              # Render deployment config
-└── .gitignore
-```
-
----
-
-## Limitations (be honest when sharing)
-
-- **Not live data.** No official fare APIs are publicly accessible.
-- **Surge shown as a range** (e.g. 1.0x–2.0x) — actual surge at any moment is unknown.
-- **Fare configs need manual updates** when platforms change pricing (~every few months).
-- **inDrive uses bidding** — shown range is an educated estimate, not a fixed price.
-- **OSRM routing** may differ slightly from in-app routing (traffic, real-time conditions).
-- **Platform availability** varies by city — some options shown may not be active in all zones.
-
----
-
-## License
-
-MIT — use it, fork it, build on it.
-
----
-
-*Built as a portfolio project. Not affiliated with Uber, Ola, Rapido, Namma Yatri, or inDrive.*
+*Built by [adikarthikeya2003](https://github.com/adikarthikeya2003)*
