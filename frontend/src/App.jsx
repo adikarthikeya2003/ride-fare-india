@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { ArrowRight, RefreshCw } from 'lucide-react'
 import Header from './components/Header'
+import InstallPrompt from './components/InstallPrompt'
 import CitySelector from './components/CitySelector'
 import SearchForm from './components/SearchForm'
 import ConditionsPanel from './components/ConditionsPanel'
@@ -248,6 +249,8 @@ export default function App() {
         Built with React · FastAPI · OpenStreetMap · Leaflet ·
         Formula-based fare estimation · Not affiliated with any platform
       </footer>
+
+      <InstallPrompt />
     </div>
   )
 }
